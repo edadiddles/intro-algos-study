@@ -15,3 +15,14 @@ func TestSortCase1(t *testing.T) {
         t.Fatalf("Failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestSortCase1Dec(t *testing.T) {
+    arr := []int{5,2,4,6,1,3}
+    expected := []int{6,5,4,3,2,1}
+
+    actual := InsertionSortDec(arr)
+
+    if !slices.Equal(actual, expected) {
+        t.Fatalf("Failed: (%v,%v)", actual, expected)
+    }
+}
