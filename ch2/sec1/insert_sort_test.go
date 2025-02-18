@@ -26,3 +26,51 @@ func TestSortCase1Dec(t *testing.T) {
         t.Fatalf("Failed: (%v,%v)", actual, expected)
     }
 }
+
+func TestAddBinaryIntsCase1(t *testing.T) {
+    a := []int{1}
+    b := []int{1}
+    expected := []int{1,0}
+
+    actual, err := AddBinaryIntegers(a,b)
+
+    if err != nil {
+        t.Fatalf("Failed: %v", err)
+    }
+
+    if !slices.Equal(actual, expected) {
+        t.Fatalf("Failed: (%v,%v)", actual, expected)
+    }
+}
+
+func TestAddBinaryIntsCase2(t *testing.T) {
+    a := []int{0,1,1,1,0,0,1,0,1}
+    b := []int{1,0,0,0,0,1,0,1,1}
+    expected := []int{0,1,1,1,1,1,0,0,0,0}
+
+    actual, err := AddBinaryIntegers(a,b)
+
+    if err != nil {
+        t.Fatalf("Failed: %v", err)
+    }
+
+    if !slices.Equal(actual, expected) {
+        t.Fatalf("Failed: (%v,%v)", actual, expected)
+    }
+}
+
+func TestAddBinaryIntsCase3(t *testing.T) {
+    a := []int{1,1,1,1,1}
+    b := []int{1,0,0,0}
+    expected := []int{}
+
+    actual, err := AddBinaryIntegers(a,b)
+
+    if err == nil {
+        t.Fatalf("Failed: Expected error")
+    }
+
+    if !slices.Equal(actual, expected) {
+        t.Fatalf("Failed: (%v,%v)", actual, expected)
+    }
+}
